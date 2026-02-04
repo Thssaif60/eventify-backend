@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Receipt {{paymentId}}</title>
+  <style>
+    body { font-family: Arial, sans-serif; color: #111; padding: 24px; }
+    .muted { color: #666; font-size: 12px; }
+    .box { border: 1px solid #e5e5e5; padding: 12px; border-radius: 8px; }
+    .row { display:flex; justify-content:space-between; }
+  </style>
+</head>
+<body>
+  <div class="row">
+    <div>
+      <div style="font-size:20px;font-weight:700;">{{brandName}}</div>
+      <div class="muted">{{businessName}}</div>
+    </div>
+    <div class="box">
+      <div><strong>PAYMENT RECEIPT</strong></div>
+      <div class="muted">ID: {{paymentId}}</div>
+      <div class="muted">Date: {{paidOn}}</div>
+    </div>
+  </div>
+
+  <div style="margin-top:18px;" class="box">
+    <div class="muted">Received From</div>
+    <div style="font-weight:700;">{{counterpartyName}}</div>
+  </div>
+
+  <div style="margin-top:18px;" class="box">
+    <div class="row">
+      <div class="muted">Amount</div>
+      <div style="font-size:18px;font-weight:700;">{{currency}} {{amount}}</div>
+    </div>
+    <div class="muted">Reference: {{refType}} {{refNo}}</div>
+    <div class="muted">Method: {{method}}</div>
+  </div>
+
+  <div style="margin-top:20px;" class="muted">{{footer}}</div>
+</body>
+</html>

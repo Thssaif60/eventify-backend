@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>{{invoiceNo}}</title>
+  <style>
+    body { font-family: Arial, sans-serif; color: #111; padding: 24px; }
+    .row { display: flex; justify-content: space-between; }
+    .muted { color: #666; font-size: 12px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 18px; }
+    th, td { border-bottom: 1px solid #e5e5e5; padding: 10px 6px; text-align: left; }
+    th { font-size: 12px; text-transform: uppercase; letter-spacing: .04em; }
+    .right { text-align: right; }
+    .total { font-size: 18px; font-weight: 700; }
+    .box { border: 1px solid #e5e5e5; padding: 12px; border-radius: 8px; }
+  </style>
+</head>
+<body>
+  <div class="row">
+    <div>
+      <div style="font-size:20px;font-weight:700;">{{brandName}}</div>
+      <div class="muted">{{businessName}}</div>
+      <div class="muted">{{businessAddress}}</div>
+    </div>
+    <div class="box">
+      <div><strong>INVOICE</strong></div>
+      <div class="muted">No: {{invoiceNo}}</div>
+      <div class="muted">Issued: {{issuedOn}}</div>
+      <div class="muted">Due: {{dueOn}}</div>
+    </div>
+  </div>
+
+  <div style="margin-top:18px;" class="box">
+    <div class="muted">Bill To</div>
+    <div style="font-weight:700;">{{customerName}}</div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Description</th>
+        <th class="right">Qty</th>
+        <th class="right">Unit</th>
+        <th class="right">Line Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{items}}
+    </tbody>
+  </table>
+
+  <div class="row" style="margin-top:18px;">
+    <div style="max-width:60%;">
+      <div class="muted">Notes</div>
+      <div>{{notes}}</div>
+    </div>
+    <div style="min-width:240px;">
+      <div class="row">
+        <div class="muted">Total</div>
+        <div class="total">{{currency}} {{total}}</div>
+      </div>
+      <div class="row">
+        <div class="muted">Balance</div>
+        <div class="total">{{currency}} {{balance}}</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:20px;" class="muted">{{footer}}</div>
+</body>
+</html>
